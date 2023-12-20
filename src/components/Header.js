@@ -34,7 +34,7 @@ function Header() {
     setIsProfileMenuOpen(!isProfileMenuOpen);
   }
   useEffect(() => {
-    toggleMode();
+    // toggleMode();
   }, []);
 
   return (

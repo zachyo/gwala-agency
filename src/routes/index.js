@@ -6,6 +6,7 @@ const Agents = lazy(() => import("../pages/Agents"));
 const SingleAgentDeets = lazy(() => import("../pages/SingleAgentDeets"));
 const Forms = lazy(() => import('../pages/Forms'))
 const Settings = lazy(() => import("../pages/Settings"));
+const Payouts = lazy(() => import("../pages/Payouts"));
 const Cards = lazy(() => import('../pages/Cards'))
 const Charts = lazy(() => import('../pages/Charts'))
 const Buttons = lazy(() => import('../pages/Buttons'))
@@ -38,8 +39,12 @@ const routes = [
     component: SingleAgentDeets,
   },
   {
-    path:'/settings',
-    component : Settings,
+    path: "/settings",
+    component: Settings,
+  },
+  {
+    path: "/payouts",
+    component: Payouts,
   },
   {
     path: "/forms",
