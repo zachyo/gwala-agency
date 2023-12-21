@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import routes from "../../routes/sidebar";
 import { NavLink, Route } from "react-router-dom";
 import * as Icons from "../../icons";
+import logo from '../../assets/img/gwala-logo-2.svg'
 import SidebarSubmenu from "./SidebarSubmenu";
 import AddAgentModal from "../AddAgentModal/AddAgentModal";
 
@@ -14,14 +15,15 @@ function SidebarContent() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="py-4 text-gray-500 dark:text-gray-400">
+    <div className="py-4 pt-2 text-gray-500 dark:text-gray-400">
       <a
-        className="ml-6 mb-7 text-lg font-bold text-gray-800 dark:text-gray-200"
+        className=" text-lg font-bold text-gray-800 dark:text-gray-200"
         href="#"
+        style={{marginTop : '-100px'}}
       >
-        GWALA AGENCY
+        <img src={logo} alt="" className="ml-8" style={{height : '50px'}}/>
       </a>
-      <ul className="mt-10" style={{ height: "60vh" }}>
+      <ul className="mt-8" style={{ height: "60vh" }}>
         {routes.map((route) =>
           route.routes ? (
             <SidebarSubmenu route={route} key={route.name} />
