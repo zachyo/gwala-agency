@@ -16,6 +16,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.36.1",
     "@testing-library/jest-dom": "4.2.4",
     "@testing-library/react": "9.5.0",
     "@testing-library/user-event": "7.2.1",
@@ -24,6 +25,7 @@
     "chart.js": "2.9.3",
     "classnames": "2.2.6",
     "faker": "4.1.0",
+    "lucide-react": "^0.323.0",
     "postcss": "^8.4.32",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^9.3.0",
@@ -32,6 +34,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^16.14.0",
     "react-focus-lock": "2.4.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "5.2.0",
     "react-scripts": "^5.0.1",
     "react-switch": "^7.0.0",

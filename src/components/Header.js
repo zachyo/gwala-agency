@@ -18,10 +18,21 @@ import {
   DropdownItem,
   WindmillContext,
 } from "@windmill/react-ui";
+import { handleClearLocalStorage } from "../api/axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
+import { AuthContext } from "../context/authContext";
 
 function Header() {
   const { mode, toggleMode } = useContext(WindmillContext);
   const { toggleSidebar } = useContext(SidebarContext);
+  const history = useHistory();
+  const { logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser();
+    handleClearLocalStorage();
+    history.push(`/`);
+  };
 
   const [isNotificationsMenuOpen, setIsNotificationsMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -142,7 +153,7 @@ function Header() {
                 <OutlineCogIcon className="w-4 h-4 mr-3" aria-hidden="true" />
                 <span>Settings</span>
               </DropdownItem>
-              <DropdownItem onClick={() => alert("Log out!")}>
+              <DropdownItem onClick={handleLogout}>
                 <OutlineLogoutIcon
                   className="w-4 h-4 mr-3"
                   aria-hidden="true"

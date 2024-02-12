@@ -1,0 +1,35 @@
+/* styles.css */
+.progressBar {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.progressBarContainer {
+  width: 200px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 9999px; /* large enough to create a circle */
+  overflow: hidden;
+}
+
+@keyframes progressBarAnimation {
+  0% {
+    transform: translateX(calc(-100% + 10px));
+  }
+  50% {
+    transform: translateX(calc(200px - 10px));
+  }
+  100% {
+    transform: translateX(calc(-100% + 10px));
+  }
+}
+
+.progressBarLoader {
+  width: 50%; /* Adjust as per your requirement */
+  height: 100%;
+  background-color: #1b1f3b;
+  border-radius: 9999px; /* large enough to create a circle */
+  animation: progressBarAnimation 2s linear infinite;
+}

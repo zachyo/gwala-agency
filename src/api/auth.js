@@ -2,13 +2,12 @@
 
 import newGwalaAxios from "./axios";
 
-
 const newEndpoints = {
   markAsVisited: (paymentId) =>
     newGwalaAxios.get(`/user/PaymentLink/MarkAsVisited/${paymentId}`),
-  submitAttended: (paymentId, payload) =>
+  login: (payload) =>
     newGwalaAxios.post(
-      `/user/PaymentLink/SubmitAttended/${paymentId}`,
+      `/agent/Auth/Login`,
       payload
     ),
   nameEnquiry: (payload) =>

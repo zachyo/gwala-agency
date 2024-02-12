@@ -1,11 +1,13 @@
 import React, { lazy } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import AccessibleNavigationAnnouncer from './components/AccessibleNavigationAnnouncer'
+import IsLoggedIn from './api/isLoggedIn'
 
 const Layout = lazy(() => import('./containers/Layout'))
 const Login = lazy(() => import('./pages/Login'))
 const CreateAccount = lazy(() => import('./pages/CreateAccount'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
+const issLoggenIn = lazy(() => import("../src/api/isLoggedIn"));
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
           <Route path="/forgot-password" component={ForgotPassword} />
+          {/* <PrivateRoute path="/app/dashboard" component={DashboardPage} /> */}
 
           {/* Place new routes over this */}
           <Route path="/app" component={Layout} />
@@ -24,7 +27,7 @@ function App() {
         </Switch>
       </Router>
     </>
-  )
+  );
 }
 
 export default App

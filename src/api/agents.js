@@ -1,19 +1,14 @@
-// import newGwalaAxios from "./axios";
 
 import newGwalaAxios from "./axios";
-
 
 const newEndpoints = {
   markAsVisited: (paymentId) =>
     newGwalaAxios.get(`/user/PaymentLink/MarkAsVisited/${paymentId}`),
-  submitAttended: (paymentId, payload) =>
-    newGwalaAxios.post(
-      `/user/PaymentLink/SubmitAttended/${paymentId}`,
-      payload
-    ),
+  login: (payload) => newGwalaAxios.post(`/agent/Auth/Login`, payload),
   nameEnquiry: (payload) =>
     newGwalaAxios.post("/user/PaymentLink/NameEnquiry", payload),
-  getBanks: () => newGwalaAxios.get(`/user/PaymentLink/GetBanks`),
+  getDashStats: () => newGwalaAxios.get(`/agent/Dashboard/Stats`),
+  getAllAgents: () => newGwalaAxios.get(`/agent/Dashboard/Agents`),
 };
 
 export default newEndpoints;

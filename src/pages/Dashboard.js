@@ -5,6 +5,7 @@ import PageTitle from "../components/Typography/PageTitle";
 import { CartIcon, MoneyIcon, PeopleIcon } from "../icons";
 import RoundIcon from "../components/RoundIcon";
 import response from "../utils/demo/tableData";
+import { toast } from "react-hot-toast";
 import {
   TableBody,
   TableContainer,
@@ -16,11 +17,34 @@ import {
   Pagination,
 } from "@windmill/react-ui";
 import SwitchCustom from "../components/Switch/Switch";
+import newEndpoints from "../api/agents";
+import ProgressBar from "../components/ProgressBar";
 
 function Dashboard() {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
   const [checked, setChecked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const stats = async () => {
+    setIsLoading(true);
+
+    try {
+      const { data } = await newEndpoints.getAllAgents();
+      console.log(data);
+      // toast.success(data.message);
+    } catch (error) {
+      if (error.code === "ERR_NETWORK") {
+        toast.error("Network error");
+      } else {
+        toast.error(error.response.data.message);
+      }
+      setIsLoading(false);
+      return;
+    }
+    setIsLoading(false);
+
+  }
 
   // pagination setup
   const resultsPerPage = 7;
@@ -40,10 +64,13 @@ function Dashboard() {
   useEffect(() => {
     setData(response.slice((page - 1) * resultsPerPage, page * resultsPerPage));
   }, [page]);
+  
+  if (isLoading) return <ProgressBar/>
 
   return (
     <div className="mb-12">
       <PageTitle>Dashboard</PageTitle>
+      <h1 onClick={stats}>Test</h1>
 
       {/* <!-- Cards --> */}
       <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3">

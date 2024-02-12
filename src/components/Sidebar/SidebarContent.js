@@ -5,6 +5,7 @@ import * as Icons from "../../icons";
 import logo from '../../assets/img/gwala-logo-2.svg'
 import SidebarSubmenu from "./SidebarSubmenu";
 import AddAgentModal from "../AddAgentModal/AddAgentModal";
+import { Link } from "react-router-dom/cjs/react-router-dom";
 
 function Icon({ icon, ...props }) {
   const Icon = Icons[icon];
@@ -16,13 +17,13 @@ function SidebarContent() {
 
   return (
     <div className="py-4 pt-2 text-gray-500 dark:text-gray-400">
-      <a
+      <Link
         className=" text-lg font-bold text-gray-800 dark:text-gray-200"
-        href="#"
+        to="/app/dashboard"
         style={{marginTop : '-100px'}}
       >
         <img src={logo} alt="" className="ml-8" style={{height : '50px'}}/>
-      </a>
+      </Link>
       <ul className="mt-8" style={{ height: "60vh" }}>
         {routes.map((route) =>
           route.routes ? (
